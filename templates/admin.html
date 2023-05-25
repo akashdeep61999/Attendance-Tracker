@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>
+		body {
+			background-color: #F8E2CF;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		h1 {
+			color: #B03A2E;
+			margin: 0;
+			text-align: center;
+		}
+
+		form {
+			background-color: #F5D0A9;
+			max-width: 400px;
+			margin: 50px auto;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 0 20px rgba(0,0,0,0.2);
+		}
+
+		input[type=text], input[type=password] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		button {
+			background-color: #7D6608;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			margin-top: 15px;
+			cursor: pointer;
+			border-radius: 5px;
+			font-family: 'Lucida Calligraphy', cursive;
+		}
+
+		button:hover {
+			background-color: #584B09;
+		}
+
+	</style>
+	<style>
+        body {
+        background-color: #F8E2CF;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+    
+    .container {
+        flex: 1;
+        background-color: #FDEDEC;
+        padding: 20px;
+
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    .report {
+        flex: 1;
+        margin-left: 20px;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    h1, h2 {
+        color: #B03A2E;
+        margin: 0;
+         text-align: center;
+    }
+    
+
+   button {
+  background-color: #7D6608;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 15px auto; /* centers the button horizontally and adds a 15px margin on top and bottom */
+  text-decoration: none;
+  display: block; /* sets the button to be a block-level element */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Lucida Calligraphy', cursive;
+}
+
+     button:hover {
+        background-color: #584B09;
+    }
+
+  .input-group {
+    display: flex; /* make the container element a flex container */
+    flex-direction: row; /* align the items horizontally */
+    align-items: center; /* center align the items vertically */
+    justify-content: center; /* center align the items horizontally */
+    margin: 10px; /* add some margin */
+  }
+
+  label {
+    margin-right: 10px; /* add some space between the label and the input */
+  }
+
+  
+
+    </style>
+</head>
+<body>
+    <style>
+    body {
+        font-family: 'Lucida Calligraphy', cursive;
+    }
+    #username {
+        margin-top: 15px;
+  font-size: 25px; 
+  width: 250px;
+  height: 30px;/* Change this value to the desired font size */
+}
+
+</style>
+
+
+
+</head>
+<body>
+	
+   <h1>Login Page</h1>
+{% if teacher == 'Shivamsir' %}
+    <h2>Hi Shivam Sir</h2>
+{% else %}
+    <h2>Hi Akash Sir</h2>
+{% endif %}
+
+<form method="POST" action="/login">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+    {% if teacher == 'Shivamsir' %}
+        <button type="submit" name="language" value="Shivamsir">Login</button>
+    {% else %}
+        <button type="submit" name="language" value="Akashsir">Login</button>
+    {% endif %}
+</form>
+
+</body>
+</html>

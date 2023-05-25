@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Attendance Report</title>
+    <style>
+    body {
+        background-color: #F8E2CF;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+    
+    .container {
+        flex: 1;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    .report {
+        flex: 1;
+        margin-left: 20px;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    h1, h2,h3 {
+        color: #B03A2E;
+        margin: 0;
+        text-align: center;font-family: 'Lucida Calligraphy', cursive;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    th {
+        background-color: #7D6608;
+        color: white;
+        text-align: left;
+        padding: 12px;
+    }
+    
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    .red {
+        color: #FF5733;
+        font-weight: bold;
+    }
+    
+    .green {
+        color: #229954;
+        font-weight: bold;
+    }
+    
+    button {font-family: 'Lucida Calligraphy', cursive;
+        text-align: center;
+        background-color: #7D6608;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    button:hover {
+        background-color: #584B09;
+    }
+
+
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h2 style="color: #B03A2E;">Student Attendance</h2>
+            <h3>Roll no. {{name1}} </h3><style>
+      body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+    </style>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. no.</th>
+                        <th>Date</th>
+                        <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(sorted_list.__len__()) %}
+                    <tr>
+                        <td>{{ Sr_no[i] }}</td>
+                        <td class="{% if sorted_list[i][1] == 'A' %}red{% elif sorted_list[i][1] == 'P' %}green{% endif %}">{{ sorted_list[i][0] }}</td>
+            <td class="{% if sorted_list[i
+][1] == 'A' %}red{% elif sorted_list[i][1] == 'P' %}green{% endif %}">{{ sorted_list[i][1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="report">
+       <center> <h2>Attendance Summary</h2>
+    <div>
+        <p>Total Lectures: {{ p_count + a_count }}</p>
+        <p>Number of Presents: {{ p_count }}</p>
+        <p>Number of Absents: {{ a_count }}</p>
+        <p>
+            Present Percentage:
+            <span style="font-weight: bold;
+                        color: {{ 'red' if p_count / (p_count + a_count) * 100 <= 50 else 'green' }}">
+                {{ '%.2f' % (p_count / (p_count + a_count) * 100) }}%
+            </span>
+        </p>
+    
+<center> <h2>MST Marks</h2>
+    <div>
+      
+  </head>
+  <body>
+    <table>
+  <thead>
+    <tr>
+      <th>MST 1</th>
+      <th>MST 2</th>
+      <th>MST 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="{% if mst1|float < 20 and mst1|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if mst1|float < 20 and mst1|float is defined %}<strong>{{ mst1 }}</strong>{% else %}{{ mst1 }}{% endif %}
+      </td>
+      <td style="{% if mst2|float < 20 and mst2|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if mst2|float < 20 and mst2|float is defined %}<strong>{{ mst2 }}</strong>{% else %}{{ mst2 }}{% endif %}
+      </td>
+      <td style="{% if mst3|float < 20 and mst3|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if mst3|float < 20 and mst3|float is defined %}<strong>{{ mst3 }}</strong>{% else %}{{ mst3 }}{% endif %}
+        {% if mst3 == 'AB' %}<strong style="color: red;">{{ mst3 }}</strong>{% endif %}
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+    </div>
+
+    <center> <h2>Submission Marks</h2>
+    <div>
+      
+  </head>
+  <body>
+    <table>
+  <thead>
+    <tr>
+      <th>Submission 1</th>
+      <th>Submission 2</th>
+      <th>Submission 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="{% if sub1|float < 3 and sub1|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if sub1|float < 3 and sub1|float is defined %}<strong>{{ sub1 }}</strong>{% else %}{{ sub1 }}{% endif %}
+      </td>
+      <td style="{% if sub2|float < 3 and sub2|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if sub2|float < 3 and sub2|float is defined %}<strong>{{ sub2 }}</strong>{% else %}{{ sub2 }}{% endif %}
+      </td>
+      <td style="{% if sub3|float < 3 and sub3|float is defined %}color: red;{% else %}color: green;{% endif %}">
+        {% if sub3|float < 3 and sub3|float is defined %}<strong>{{ sub3 }}</strong>{% else %}{{ sub3 }}{% endif %}
+        {% if sub3 == 'AB' %}<strong style="color: red;">{{ sub3 }}</strong>{% endif %}
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+    </div>
+
+    <button onclick="window.print()">Download PDF</button>
+</center>
+
+         
+   
+
+</body>
+</html>

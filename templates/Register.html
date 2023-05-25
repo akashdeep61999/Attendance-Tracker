@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Attenadance Register</title>
+    <style>
+      /* Wrapper styles */
+      .wrapper {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+      
+      /* Heading styles */
+      h1 {
+        color: #B03A2E;
+        background-color: #F5D0A9;
+        padding: 10px;
+        text-align: center;
+        font-family: 'Lucida Calligraphy', cursive;
+      }
+      
+      /* Style for 'P' cells */
+      .cell-p {
+        color: green;
+        font-weight: bold;
+      }
+      
+      /* Style for 'A' cells */
+      .cell-a {
+        color: red;
+        font-weight: bold;
+      }
+      
+      /* Style for first column cells */
+      td:first-child {
+        font-weight: bold;
+      }
+      
+      /* Style for table cells except first column */
+      td:not(:first-child) {
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="wrapper">
+    <h1>{{a}} Attenadance Register</h1>
+    <table>
+      {{ table|safe }}
+    </table>
+  
+    <button onclick="downloadCSV()">Download CSV</button>
+    <script>
+      // Find all 'P' and 'A' cells and add the appropriate class
+      const cells = document.querySelectorAll('td');
+      cells.forEach(cell => {
+        if (cell.innerText === 'P') {
+          cell.classList.add('cell-p');
+        } else if (cell.innerText === 'A') {
+          cell.classList.add('cell-a');
+        }
+      });
+
+    
+
+      // Function to download data as CSV
+      function downloadCSV() {
+  const csvData = [];
+  const rows = document.querySelectorAll('tr');
+  rows.forEach(row => {
+    const rowData = [];
+    const cells = row.querySelectorAll('th, td'); // select both th and td elements
+    cells.forEach(cell => {
+      rowData.push(cell.innerText);
+    });
+    csvData.push(rowData.join(','));
+  });
+  const csvContent = 'data:text/csv;charset=utf-8,' + csvData.join('\n');
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+  link.setAttribute('download', 'attendance.csv');
+  document.body.appendChild(link);
+  link.click();
+}
+
+    </script>
+  </body>
+</html>

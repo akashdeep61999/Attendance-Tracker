@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Attendees</title>
+    <style>
+        body {
+        background-color: #F8E2CF;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+     .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+    
+    .container {
+        flex: 1;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    .report {
+        flex: 1;
+        margin-left: 20px;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1, h2 ,h3{
+         color: #B03A2E;
+        margin: 0;
+        text-align: center;font-family: 'Lucida Calligraphy', cursive;
+        background-color: #F5F5DC;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    th {
+        background-color: #7D6608;
+        color: white;
+        text-align: left;
+        padding: 12px;
+    }
+    
+    td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    .red {
+        color: #FF5733;
+        font-weight: bold;
+    }
+    
+    .green {
+        color: #229954;
+        font-weight: bold;
+    }
+    
+    button {font-family: 'Lucida Calligraphy', cursive;
+        text-align: center;
+        background-color: #7D6608;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    button:hover {
+        background-color: #584B09;
+    }
+    .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: left;
+    background-color: #7D6608;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #000; /* Add this line to set the text color */
+}
+
+        
+        .dropdown-content button:hover {
+    background-color: #ef847c;    <!-- change color when pointer points the button-->
+    color: #FFFFFF;
+}
+
+        
+        .dropdown-content button:focus {
+            outline: none;
+        }
+</style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <h2 style="color: #B03A2E;">{{ recent_Att[0][0]}}: {{ recent_Att[0][1] }}</h2>
+            
+           
+
+<style>
+      body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+      }
+
+    </style>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. no.</th>
+                <th>Roll no.</th>
+                <th>Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in recent_Att[1:] %}
+        <tr>
+            {% if item[1] == "P" %}
+                <td><strong><span style="color:green">{{ Sr_no[loop.index0] }}</span></strong></td>
+                <td><strong><span style="color:green">{{ item[0] }}</span></strong></td>
+                <td><strong><span style="color:green">{{ item[1] }}</span></strong></td>
+            {% else %}
+                <td><strong><span style="color:red">{{ Sr_no[loop.index0] }}</span></strong></td>
+                <td><strong><span style="color:red">{{ item[0] }}</span></strong></td>
+                <td><strong><span style="color:red">{{ item[1] }}</span></strong></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<div class="report">
+        <h2>Attendance Summary</h2>
+        <div style="text-align: center;">
+    <div>
+        <p>Total Students {{ p_count + a_count }}</p>
+        <p>Number of Presents: {{ p_count }}</p>
+        <p>Number of Absents: {{ a_count }}</p>
+        <p>
+            Present Percentage:
+            <span style="font-weight: bold;
+                        color: {{ 'red' if p_count / (p_count + a_count) * 100 <= 50 else 'green' }}">
+                {{ '%.2f' % (p_count / (p_count + a_count) * 100) }}%
+            </span>
+        </p>
+    </div><button onclick="window.print()">Download PDF</button>
+</div>
+
+   
+
+    </div>
+
+</body>
+</html>

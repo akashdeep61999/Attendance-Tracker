@@ -1,0 +1,178 @@
+  <!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Admin page</title>
+    <style>
+        body {
+        background-color: #F8E2CF;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+    
+    .container {
+        flex: 1;
+        background-color: #FDEDEC;
+        padding: 20px;
+
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    .report {
+        flex: 1;
+        margin-left: 20px;
+        background-color: #FDEDEC;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    
+    h1, h2 {
+        color: #B03A2E;
+        margin: 0;
+         text-align: center;
+    }
+    
+
+    button {
+        background-color: #7D6608;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        margin-left: 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: 'Lucida Calligraphy', cursive;
+    }
+     button:hover {
+        background-color: #584B09;
+    }
+
+  .input-group {
+    display: flex; /* make the container element a flex container */
+    flex-direction: row; /* align the items horizontally */
+    align-items: center; /* center align the items vertically */
+    justify-content: center; /* center align the items horizontally */
+    margin: 10px; /* add some margin */
+  }
+
+  label {
+    margin-right: 10px; /* add some space between the label and the input */
+  }
+
+  
+
+    </style>
+</head>
+<body>
+    <style>
+    body {
+        font-family: 'Lucida Calligraphy', cursive;
+    }
+    #username {
+        margin-top: 15px;
+  font-size: 25px; 
+  width: 250px;
+  height: 30px;/* Change this value to the desired font size */
+}
+
+</style>
+
+<!-- <h1 style="color: #B03A2E; font-family: 'Lucida Calligraphy', cursive">Attendance Tracker</h1>
+{% if teacher=='Shivamsir' %}
+<h2 style="color: #B03A2E; font-family: 'Lucida Calligraphy', cursive">Hi Shivam Sir</h2>
+{% else %}
+<h2 style="color: #B03A2E; font-family: 'Lucida Calligraphy', cursive">Hi Akash Sir</h2>
+{% endif %} -->
+{% if subject == 'Java' or subject == 'Python' %}
+<h1> Welcome Akash Sir</h1>
+{% else %}
+<h1> Welcome Shivam Sir</h1>
+{% endif %}
+    <div class="wrapper">
+    	
+        <div class="container">
+            
+
+            
+    
+    <!-- <div class="input-group">
+    <button onclick="window.location.href='/thregister'">Theory</button>
+    <button onclick="window.location.href='/labaregister'">Lab A</button>
+    <button onclick="window.location.href='/labbregister'">Lab B</button>
+  </div> -->
+
+  <form class="form" action="/register" method="post">
+    <h2>Attendance Register</h2>
+
+    <div class="input-group">
+    {% if subject == 'Java' %}
+    <button type="submit" name="submit" value="Java_Theory">Java Th.</button>
+    <button type="submit" name="submit" value="Java_Lab_A">Lab_A</button>
+    <button type="submit" name="submit" value="Java_Lab_B">Lab_B</button>
+{% elif subject == 'Python' %}
+    <button type="submit" name="submit" value="Python_Theory">Python Th.</button>
+    <button type="submit" name="submit" value="Python_Lab_A">Lab_A</button>
+    <button type="submit" name="submit" value="Python_Lab_B">Lab_B</button>
+    {% elif subject == 'Cloud Computing' %}
+    <button type="submit" name="submit" value="Python_Theory">CC Th.</button>
+    <button type="submit" name="submit" value="Python_Lab_A">Lab_A</button>
+    <button type="submit" name="submit" value="Python_Lab_B">Lab_B</button>
+    {% elif subject == 'DBMS' %}
+    <button type="submit" name="submit" value="Python_Theory">DBMS Th.</button>
+    <button type="submit" name="submit" value="Python_Lab_A">Lab_A</button>
+    <button type="submit" name="submit" value="Python_Lab_B">Lab_B</button>
+     {% elif subject == 'SCAshivamsir' %}
+    <button type="submit" name="submit" value="SCAshivamsir">SCA</button>
+
+    {% elif subject == 'SCAakashsir' %}
+    <button type="submit" name="submit" value="SCAakashsir">SCA</button>
+{% else %}
+    <p>Invalid subject value</p>
+{% endif %}
+
+  </div>
+  </form>
+
+ 
+</div>
+        <div class="report">
+         <form class="form" action="/sessional" method="post">   
+        <h2>Sessional Data</h2>
+       
+    <label for="username" style="font-size: 25px;">Best One list</label>
+      <input type="text" id="username" name="username">
+      <div class="input-group">
+        {% if subject == 'Java' %}
+      <button type="submit" name="submit" value="{{subject}}">Sessional</button>
+      {% elif subject == 'Python' %}
+      <button type="submit" name="submit" value="{{subject}}">Sessional</button>
+      {% elif subject == 'Cloud Computing' %}
+      <button type="submit" name="submit" value="{{subject}}">Sessional</button>
+      {% elif subject == 'DBMS' %}
+      <button type="submit" name="submit" value="{{subject}}">Sessional</button>
+      {% else %}
+    <p>Invalid subject value</p>
+{% endif %}
+
+  </div>
+  </form>
+</body>
+</html>
+

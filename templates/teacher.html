@@ -1,0 +1,74 @@
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>ADMIN /STUDENT</title>
+    <style>
+       
+        body {
+        background-color: #F8E2CF;
+        font-family: 'Lucida Calligraphy', cursive;
+    
+    }
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+  
+    h1, h2 {
+        color: #B03A2E;
+        margin: 0;
+         text-align: center;
+    }
+    
+
+    button {
+        background-color: #7D6608;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        margin-left: 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: 'Lucida Calligraphy', cursive;
+    }
+     
+    </style>
+</head>
+<body>
+<h1 style="color: #B03A2E;font-family: 'Lucida Calligraphy', cursive; "> Attendance Tracker</h1>
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper">
+    <!-- <button onclick="window.location.href='/subject'" style="margin-right: 10px; margin-bottom: 10px;">Java</button>
+    <button onclick="window.location.href='/subject'" style="margin-left: 10px; margin-top: 10px;">Python</button> -->
+    {% if teacher == 'STUDENT' %}
+     <form action="/checksub" method="post">
+        <button type="submit" name="language" value="Akashsir">Akash sir</button>
+        <button type="submit" name="language" value="Shivamsir">Shivam sir</button>
+    </form>
+    {% else %}
+    <form action="/admin" method="post">
+        <button type="submit" name="language" value="Akashsir">Akash sir</button>
+        <button type="submit" name="language" value="Shivamsir">Shivam sir</button>
+    </form>
+    {% endif %}
+</div>
+
+    </div>
+</body>
+</html>

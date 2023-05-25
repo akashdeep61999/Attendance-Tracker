@@ -1,0 +1,91 @@
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>ADMIN /STUDENT</title>
+    <style>
+       
+        body {
+        background-color: #F8E2CF;
+        font-family: 'Lucida Calligraphy', cursive;
+    
+    }
+    
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;
+        max-width: 1200px;
+        background-color: #F5D0A9;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        border-radius: 10px;
+    }
+  
+    h1, h2 {
+        color: #B03A2E;
+        margin: 0;
+         text-align: center;
+    }
+    
+
+    button {
+        background-color: #7D6608;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        margin-left: 20px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-family: 'Lucida Calligraphy', cursive;
+    }
+     
+    </style>
+</head>
+<body>
+
+    </style>
+</head><h1 style="color: #B03A2E;font-family: 'Lucida Calligraphy', cursive; "> Attendance Tracker</h1>
+<body>
+    <div class="wrapper">
+        <div class="wrapper">
+{% if admin == 0 %}
+    <form action="/subject" method="post">
+    {% if teacher == 'Akashsir' %}
+    <button type="submit" name="language" value="Java">Java</button>
+    <button type="submit" name="language" value="Python">Python</button>
+    <button type="submit" name="language" value="SCAakashsir">SCA</button>
+    {% elif teacher == 'Shivamsir' %}
+    <button type="submit" name="language" value="Cloud Computing">CC</button>
+    <button type="submit" name="language" value="DBMS">DBMS</button>
+    <button type="submit" name="language" value="SCAshivamsir">SCA</button>
+    {% else %}
+    <p>Invalid subject value</p>
+    {% endif %}
+    </form>
+{% else %}
+    <form action="/adminsub" method="post">
+     {% if teacher == 'Akashsir' %}
+    <button type="submit" name="language" value="Java">Java</button>
+    <button type="submit" name="language" value="Python">Python</button>
+    <button type="submit" name="language" value="SCAakashsir">SCA</button>
+    {% elif teacher == 'Shivamsir' %}
+    <button type="submit" name="language" value="Cloud Computing">CC</button>
+    <button type="submit" name="language" value="DBMS">DBMS</button>
+    <button type="submit" name="language" value="SCAshivamsir">SCA</button>
+    {% else %}
+    <p>Invalid subject value</p>
+    {% endif %}
+    </form>
+{% endif %}
+
+</div>
+
+    </div>
+</body>
+</html>
