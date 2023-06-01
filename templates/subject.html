@@ -60,30 +60,34 @@
     <button type="submit" name="language" value="Java">Java</button>
     <button type="submit" name="language" value="Python">Python</button>
     <button type="submit" name="language" value="SCAakashsir">SCA</button>
+    <button type="submit" name="language" value="MPWakashsir">MPW</button>
     {% elif teacher == 'Shivamsir' %}
     <button type="submit" name="language" value="Cloud Computing">CC</button>
     <button type="submit" name="language" value="DBMS">DBMS</button>
     <button type="submit" name="language" value="SCAshivamsir">SCA</button>
+    <button type="submit" name="language" value="MPWshivamsir">MPW</button>
     {% else %}
     <p>Invalid subject value</p>
     {% endif %}
     </form>
-{% else %}
+
+   {% else %}
     <form action="/adminsub" method="post">
-     {% if teacher == 'Akashsir' %}
+    {% if teacher == 'Akashsir' %}
     <button type="submit" name="language" value="Java">Java</button>
     <button type="submit" name="language" value="Python">Python</button>
     <button type="submit" name="language" value="SCAakashsir">SCA</button>
+    <button type="submit" name="language" value="MPWakashsir">MPW</button>
     {% elif teacher == 'Shivamsir' %}
     <button type="submit" name="language" value="Cloud Computing">CC</button>
     <button type="submit" name="language" value="DBMS">DBMS</button>
     <button type="submit" name="language" value="SCAshivamsir">SCA</button>
+    <button type="submit" name="language" value="MPWshivamsir">MPW</button>
     {% else %}
     <p>Invalid subject value</p>
     {% endif %}
     </form>
 {% endif %}
-
 </div>
 
     </div>
