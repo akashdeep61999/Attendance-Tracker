@@ -5,12 +5,36 @@ from flask import Flask, request, jsonify, render_template
 app = Flask(__name__)
 
 
-
 Java_Theory='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
 Java_Lab_A="1Ik4guLKNHQz7ZC0LwTeCGl23G66vm9xWEwzhgcwrzJA"
 Java_Lab_B="1--xishZY_sgONYzStNwhgkoFf3Pj7yn_CDAiDlJnhUg"
 mst_java='Award_list_Java.xlsx'
 sub_java='Submission_list_Java.xlsx'
+
+Python_Theory='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+Python_Lab_A="1Ik4guLKNHQz7ZC0LwTeCGl23G66vm9xWEwzhgcwrzJA"
+Python_Lab_B="1--xishZY_sgONYzStNwhgkoFf3Pj7yn_CDAiDlJnhUg"
+mst_Python='Award_list_Java.xlsx'
+sub_Python='Submission_list_Java.xlsx'
+
+CC_Theory='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+CC_Lab_A="1Ik4guLKNHQz7ZC0LwTeCGl23G66vm9xWEwzhgcwrzJA"
+CC_Lab_B="1--xishZY_sgONYzStNwhgkoFf3Pj7yn_CDAiDlJnhUg"
+mst_CC='Award_list_Java.xlsx'
+sub_CC='Submission_list_Java.xlsx'
+
+DBMS_Theory='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+DBMS_Lab_A="1Ik4guLKNHQz7ZC0LwTeCGl23G66vm9xWEwzhgcwrzJA"
+DBMS_Lab_B="1--xishZY_sgONYzStNwhgkoFf3Pj7yn_CDAiDlJnhUg"
+mst_DBMS='Award_list_Java.xlsx'
+sub_DBMS='Submission_list_Java.xlsx'
+
+SCAakashsir='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+SCAshivamsir='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+
+MPWshivamsir='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+MPWakashsir='1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+
 
 @app.route("/")
 def home():
@@ -151,27 +175,37 @@ def register():
             gsheetid = Java_Lab_B
 
         elif submit_value == 'Python_Theory':
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid =Python_Theory
         elif submit_value == 'Python_Lab_A':
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid = Python_Lab_A
         elif submit_value=="Python_Lab_B":
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid = Python_Lab_B
 
         elif submit_value == 'CC_Theory':
-            gsheetid = Java_Theory
+            gsheetid = CC_Theory
         elif submit_value == 'CC_Lab_A':
-            gsheetid = Java_Lab_A
+            gsheetid = CC_Lab_A
         elif submit_value == 'CC_Lab_B':
-            gsheetid = Java_Lab_B
+            gsheetid = CC_Lab_B
 
         elif submit_value == 'DBMS_Theory':
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid = DBMS_Theory
         elif submit_value == 'DBMS_Lab_A':
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid = DBMS_Lab_A
+        elif submit_value == 'DBMS_Lab_B':
+            gsheetid = DBMS_Lab_B
+    
         elif submit_value == 'SCAshivamsir':
-            gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+            gsheetid = SCAshivamsir
         elif submit_value == 'SCAakashsir':
-            gsheetid = '1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+            gsheetid = SCAakashsir
+
+        elif submit_value == 'MPWshivamsir':
+            gsheetid = MPWshivamsir
+
+        elif submit_value == 'MPWakashsir':
+            gsheetid = MPWakashsir
+
         else:
             gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
 
@@ -210,31 +244,36 @@ def sessional():
     if request.method == 'POST':
         submit_value = request.form['submit']
         Best_one=request.form['username']
-
+        
         if submit_value == 'Java':
             gsheetid = Java_Theory
             gsheetid1=Java_Lab_A
             gsheetid2=Java_Lab_B
             mst_df = pd.read_excel(mst_java)
             sub_df=pd.read_excel(sub_java)
+
         elif submit_value == 'Python':
             gsheetid = Java_Theory
             gsheetid1=Java_Lab_A
             gsheetid2=Java_Lab_B
             mst_df = pd.read_excel(mst_java)
             sub_df=pd.read_excel(sub_java)
+
         elif submit_value == 'DBMS':
             gsheetid =  Java_Theory
             gsheetid1=Java_Lab_A
             gsheetid2=Java_Lab_B
             sub_df=pd.read_excel(sub_java)
             mst_df = pd.read_excel(mst_java)
+
         elif submit_value == 'Cloud Computing':
             gsheetid = Java_Theory
             mst_df = pd.read_excel(mst_java)
             gsheetid1=Java_Lab_A
             gsheetid2=Java_Lab_B
             sub_df=pd.read_excel(sub_java)
+        else:
+            return f"Java Theory Register Error"
 
         sheet_name = "Data"
         gsheet_url = "https://docs.google.com/spreadsheets/d/{}/gviz/tq?tqx=out:csv&sheet={}".format(gsheetid, sheet_name)
@@ -510,30 +549,36 @@ def recentatt():
         gsheetid = Java_Lab_B
 
     elif submit_value == 'Python_Theory':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid =Python_Theory
     elif submit_value == 'Python_Lab_A':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = Python_Lab_A
     elif submit_value=="Python_Lab_B":
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = Python_Lab_B
 
     elif submit_value == 'CC_Theory':
-        gsheetid = Java_Theory
+        gsheetid = CC_Theory
     elif submit_value == 'CC_Lab_A':
-        gsheetid = Java_Lab_A
+        gsheetid = CC_Lab_A
     elif submit_value == 'CC_Lab_B':
-        gsheetid = Java_Lab_B
+        gsheetid = CC_Lab_B
 
     elif submit_value == 'DBMS_Theory':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Theory
     elif submit_value == 'DBMS_Lab_A':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Lab_A
     elif submit_value == 'DBMS_Lab_B':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Lab_B
     
     elif submit_value == 'SCAshivamsir':
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = SCAshivamsir
     elif submit_value == 'SCAakashsir':
-        gsheetid = '1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+        gsheetid = SCAakashsir
+
+    elif submit_value == 'MPWshivamsir':
+        gsheetid = MPWshivamsir
+
+    elif submit_value == 'MPWakashsir':
+        gsheetid = MPWakashsir
 
     else:
         gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
@@ -638,6 +683,7 @@ def recentatt():
 #     except Exception as e:
 #         return f"Recent att at a Error"
 
+
 @app.route("/search", methods=["POST"])
 def search():
     a=1
@@ -646,10 +692,12 @@ def search():
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
         gsheetid = Java_Theory
+
     elif submit_value == 'Java_Lab_A':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
         gsheetid = Java_Lab_A
+
     elif submit_value == 'Java_Lab_B':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
@@ -658,49 +706,73 @@ def search():
     elif submit_value == 'Python_Theory':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = Python_Theory
+
     elif submit_value == 'Python_Lab_A':
         mst_df = pd.read_excel(mst_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        sub_df=pd.read_excel(sub_java)
+        gsheetid = Python_Lab_A
+
     elif submit_value=="Python_Lab_B":
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = Python_Lab_B
 
     elif submit_value == 'CC_Theory':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = Java_Theory
+        gsheetid = CC_Theory
+
     elif submit_value == 'CC_Lab_A':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = Java_Lab_A
+        gsheetid = CC_Lab_A
+
     elif submit_value == 'CC_Lab_B':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = Java_Lab_B
+        gsheetid = CC_Lab_B
 
     elif submit_value == 'DBMS_Theory':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Theory
+
     elif submit_value == 'DBMS_Lab_A':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Lab_A
+
     elif submit_value == 'DBMS_Lab_B':
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = DBMS_Lab_B
 
     elif submit_value == 'SCAakashsir':
+        a=0
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1wqrXEnrXBk_4rRhvjR3rURNBwlqIw0JA22YiZnTpp5k'
+        gsheetid = SCAakashsir
+
     elif submit_value == 'SCAshivamsir':
+        a=0
         mst_df = pd.read_excel(mst_java)
         sub_df=pd.read_excel(sub_java)
-        gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
+        gsheetid = SCAshivamsir
+
+    elif submit_value == 'MPWshivamsir':
+        a=0
+        mst_df = pd.read_excel(mst_java)
+        sub_df=pd.read_excel(sub_java)
+        gsheetid = MPWshivamsir
+
+    elif submit_value == 'MPWakashsir':
+        a=0
+        mst_df = pd.read_excel(mst_java)
+        sub_df=pd.read_excel(sub_java)
+        gsheetid = MPWakashsir
+
+
     else:
         gsheetid = '1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
         mst_df = pd.read_excel(mst_java)
@@ -766,12 +838,11 @@ def search():
             a_count = counts['A']
             n=len(sorted_list)
             generate_list = lambda n: list(range(1, n+1))
-            return render_template('home.html',submit_value=submit_value, sorted_list=sorted_list, p_count=p_count, a_count=a_count,Sr_no=generate_list(n),name1=name1,lis=lis,mst1=mst1,mst2=mst2,mst3=mst3,sub1=sub1,sub2=sub2,sub3=sub3)
+            return render_template('home.html',submit_value=submit_value,a=a, sorted_list=sorted_list, p_count=p_count, a_count=a_count,Sr_no=generate_list(n),name1=name1,lis=lis,mst1=mst1,mst2=mst2,mst3=mst3,sub1=sub1,sub2=sub2,sub3=sub3)
         else:
             return render_template('founderror.html',a=a)
     except Exception as e:
         return f"Java Theory Error"
-
 
     # elif submit_value=='Python_Theory':
     #     gsheetid ='1v_14EKTFW_UrgueMh2p4qwu8vXo8epVlNlpn4aQKMsw'
