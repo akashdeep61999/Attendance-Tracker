@@ -100,7 +100,7 @@
 {% else %}
 <h2 style="color: #B03A2E; font-family: 'Lucida Calligraphy', cursive">Hi Akash Sir</h2>
 {% endif %} -->
-{% if subject == 'Java' or subject == 'Python' %}
+{% if subject == 'Java' or subject == 'Python'or subject=='SCAakashsir' or subject =='MPWakashsir' %}
 <h1> Welcome Akash Sir</h1>
 {% else %}
 <h1> Welcome Shivam Sir</h1>
@@ -126,7 +126,7 @@
     <button type="submit" name="submit" value="Java_Theory">Java Th.</button>
     <button type="submit" name="submit" value="Java_Lab_A">Lab_A</button>
     <button type="submit" name="submit" value="Java_Lab_B">Lab_B</button>
-{% elif subject == 'Python' %}
+    {% elif subject == 'Python' %}
     <button type="submit" name="submit" value="Python_Theory">Python Th.</button>
     <button type="submit" name="submit" value="Python_Lab_A">Lab_A</button>
     <button type="submit" name="submit" value="Python_Lab_B">Lab_B</button>
@@ -140,9 +140,13 @@
     <button type="submit" name="submit" value="Python_Lab_B">Lab_B</button>
      {% elif subject == 'SCAshivamsir' %}
     <button type="submit" name="submit" value="SCAshivamsir">SCA</button>
-
     {% elif subject == 'SCAakashsir' %}
     <button type="submit" name="submit" value="SCAakashsir">SCA</button>
+
+    {% elif subject == 'MPWshivamsir' %}
+    <button type="submit" name="submit" value="MPWshivamsir">MPW</button>
+    {% elif subject == 'MPWakashsir' %}
+    <button type="submit" name="submit" value="MPWakashsir">MPW</button>
 {% else %}
     <p>Invalid subject value</p>
 {% endif %}
