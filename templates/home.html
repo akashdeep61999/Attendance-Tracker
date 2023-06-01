@@ -137,7 +137,7 @@
                 {{ '%.2f' % (p_count / (p_count + a_count) * 100) }}%
             </span>
         </p>
-    
+    {% if a == 1%}
 <center> <h2>MST Marks</h2>
     <div>
       
@@ -199,7 +199,7 @@
 
 </table>
     </div>
-
+{% endif %}
     <button onclick="window.print()">Download PDF</button>
 </center>
 
