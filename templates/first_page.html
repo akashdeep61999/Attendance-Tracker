@@ -124,29 +124,44 @@
       <label for="username" style="font-size: 25px;">Roll No.</label>
       <input type="text" id="username" name="username">
       <div class="input-group">
+
+
         {% if subject in ['Java', 'Python', 'Cloud Computing', 'DBMS'] %}
           <button type="submit" name="submit" value="{{ subject }}_Theory">{{ subject }} Th.</button>
           <button type="submit" name="submit" value="{{ subject }}_Lab_A">Lab_A</button>
           <button type="submit" name="submit" value="{{ subject }}_Lab_B">Lab_B</button>
+
         {% elif subject in ['SCAshivamsir', 'SCAakashsir'] %}
           <button type="submit" name="submit" value="{{ subject }}">SCA</button>
+
+        {% elif subject in ['MPWakashsir', 'MPWshivamsir'] %}
+          <button type="submit" name="submit" value="{{ subject }}">MPW</button>
         {% else %}
+
           <p>Invalid subject value</p>
         {% endif %}
+        
       </div>
     </form>
   </div>
   <div class="report">
     <h2>Last Lecture Attendance</h2>
     <div class="input-group">
+
+
       <form class="form" action="/recentatt" method="post">
         {% if subject in ['Java', 'Python', 'Cloud Computing', 'DBMS'] %}
           <button type="submit" name="submit" value="{{ subject }}_Theory">{{ subject }} Th.</button>
           <button type="submit" name="submit" value="{{ subject }}_Lab_A">Lab_A</button>
           <button type="submit" name="submit" value="{{ subject }}_Lab_B">Lab_B</button>
+
         {% elif subject in ['SCAshivamsir', 'SCAakashsir'] %}
           <button type="submit" name="submit" value="{{ subject }}">SCA</button>
+
+        {% elif subject in ['MPWakashsir', 'MPWshivamsir'] %}
+          <button type="submit" name="submit" value="{{ subject }}">MPW</button>
         {% else %}
+
           <p>Invalid subject value</p>
         {% endif %}
       </form>
